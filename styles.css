@@ -447,6 +447,16 @@ body::before {
     font-weight: 500;
 }
 
+/* Immersive Translate compatibility - display translation on new line */
+.item-title font[class*="immersive-translate"],
+.item-title span[class*="immersive-translate"],
+.item-title .notranslate + * {
+    display: block;
+    margin-top: 4px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
 /* ====================================
    Footer
    ==================================== */
