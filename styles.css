@@ -3,41 +3,42 @@
    ==================================== */
 
 :root {
-    /* Color Palette - Premium Dark */
-    --bg-primary: #121212;   /* Deeper, truer black */
-    --bg-gradient: radial-gradient(circle at 50% 0%, #2a2d3e 0%, #121212 100%);
+    /* Color Palette - Premium Warm Dark (NewsNow Reference) */
+    --bg-primary: #1a1616;   /* Deep warm black */
+    --bg-gradient: linear-gradient(135deg, #2c2020 0%, #1a1616 100%);
     
-    /* Card Backgrounds - Glassmorphism */
-    --card-bg: rgba(35, 38, 45, 0.55);
-    --card-border: rgba(255, 255, 255, 0.08);
-    --card-hover-border: rgba(255, 255, 255, 0.15);
+    /* Card Backgrounds - Tinted Glass */
+    /* Instead of flat dark, we use a very subtle gradient based on brand later, 
+       but default is lighter/softer than before */
+    --card-bg: rgba(45, 40, 40, 0.45); 
+    --card-border: rgba(255, 255, 255, 0.06);
+    --card-hover-border: rgba(255, 255, 255, 0.12);
     
     /* Text Colors */
-    --text-primary: #EAEAEA;
-    --text-secondary: #A0A0A0;
-    --text-muted: #666666;
+    --text-primary: #F0F0F0;
+    --text-secondary: #B0B0B0;
+    --text-muted: #706060;
     
-    /* Brand Colors - Adjusted for Dark Mode */
-    /* Muted but rich gradients */
-    --bloomberg-gradient: linear-gradient(135deg, #1A4E85 0%, #123456 100%);
-    --reuters-gradient: linear-gradient(135deg, #FF5722 0%, #C43E00 100%);
-    --ap-gradient: linear-gradient(135deg, #D32F2F 0%, #9A0007 100%);
-    --rfi-gradient: linear-gradient(135deg, #0288D1 0%, #01579B 100%);
-    --ft-gradient: linear-gradient(135deg, #FDD835 0%, #FBC02D 100%); /* Adjusted for readability */
-    --wsj-gradient: linear-gradient(135deg, #424242 0%, #212121 100%);
-    --nikkei-gradient: linear-gradient(135deg, #039BE5 0%, #0277BD 100%);
-    --zaobao-gradient: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+    /* Brand Gradients for Headers - More Vibrant & Vertical */
+    --bloomberg-gradient: linear-gradient(180deg, rgba(30, 58, 138, 0.8) 0%, rgba(30, 58, 138, 0.2) 100%); /* Blue */
+    --reuters-gradient: linear-gradient(180deg, rgba(234, 88, 12, 0.8) 0%, rgba(234, 88, 12, 0.2) 100%);   /* Orange */
+    --ap-gradient: linear-gradient(180deg, rgba(220, 38, 38, 0.8) 0%, rgba(220, 38, 38, 0.2) 100%);       /* Red */
+    --rfi-gradient: linear-gradient(180deg, rgba(2, 132, 199, 0.8) 0%, rgba(2, 132, 199, 0.2) 100%);      /* Light Blue */
+    --ft-gradient: linear-gradient(180deg, rgba(202, 138, 4, 0.8) 0%, rgba(202, 138, 4, 0.2) 100%);       /* Yellow/Gold */
+    --wsj-gradient: linear-gradient(180deg, rgba(71, 85, 105, 0.8) 0%, rgba(71, 85, 105, 0.2) 100%);      /* Grey */
+    --nikkei-gradient: linear-gradient(180deg, rgba(8, 145, 178, 0.8) 0%, rgba(8, 145, 178, 0.2) 100%);   /* Cyan */
+    --zaobao-gradient: linear-gradient(180deg, rgba(185, 28, 28, 0.8) 0%, rgba(185, 28, 28, 0.2) 100%);   /* Dark Red */
     
     /* Spacing & Layout */
-    --radius-card: 16px;
-    --radius-sm: 6px;
+    --radius-card: 12px; /* Slightly tighter than 16px to match reference */
+    --radius-sm: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
-    --spacing-lg: 24px;
+    --spacing-lg: 20px;
     
     /* Shadows */
-    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
-    --backdrop-blur: 20px;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --backdrop-blur: 12px;
 }
 
 /* ====================================
@@ -53,6 +54,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: var(--bg-primary);
     background-image: var(--bg-gradient);
+    background-attachment: fixed;
     color: var(--text-primary);
     min-height: 100vh;
     line-height: 1.5;
@@ -66,7 +68,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-lg) 40px;
+    padding: 20px 30px;
     max-width: 1800px;
     margin: 0 auto;
 }
@@ -77,34 +79,36 @@ body {
     gap: 12px;
 }
 
-.logo-icon { font-size: 24px; }
+.logo-icon { 
+    font-size: 28px; 
+    filter: drop-shadow(0 0 8px rgba(255, 87, 34, 0.4));
+}
 .logo-text { 
-    font-size: 20px; 
-    font-weight: 700; 
+    font-size: 22px; 
+    font-weight: 800; 
     letter-spacing: -0.5px;
-    background: linear-gradient(90deg, #fff, #bbb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
 }
 .logo-version {
-    font-size: 11px;
-    background: rgba(255,255,255,0.1);
+    font-size: 10px;
+    background: rgba(255,255,255,0.15);
     padding: 2px 6px;
     border-radius: 4px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
     transition: all 0.2s ease;
 }
 .nav-link:hover {
-    background: rgba(255,255,255,0.1);
     color: #fff;
 }
 
@@ -112,120 +116,124 @@ body {
    Main Content Grid
    ==================================== */
 .main-content {
-    padding: 0 40px var(--spacing-lg);
+    padding: 0 30px 40px;
     max-width: 1800px;
     margin: 0 auto;
 }
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
 }
 
 /* ====================================
    News Card Design
    ==================================== */
 .news-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
+    background: var(--card-bg); /* Base glass */
+    border: none; /* Reference has very subtle or no border */
     border-radius: var(--radius-card);
-    backdrop-filter: blur(var(--backdrop-blur));
-    -webkit-backdrop-filter: blur(var(--backdrop-blur));
     overflow: hidden;
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-soft);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    /* Create a pseudo-element for the colored tint background */
 }
 
-.news-card:hover {
-    border-color: var(--card-hover-border);
-    transform: translateY(-2px);
-}
+/* Use tint based on source color */
+.news-card[data-source="bloomberg"] { background: linear-gradient(160deg, rgba(30, 58, 138, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
+.news-card[data-source="reuters"]   { background: linear-gradient(160deg, rgba(234, 88, 12, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
+.news-card[data-source="ap"]        { background: linear-gradient(160deg, rgba(220, 38, 38, 0.10) 0%, rgba(45, 40, 40, 0.4) 100%); }
+.news-card[data-source="rfi"]       { background: linear-gradient(160deg, rgba(2, 132, 199, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
+.news-card[data-source="ft"]        { background: linear-gradient(160deg, rgba(202, 138, 4, 0.10) 0%, rgba(45, 40, 40, 0.4) 100%); }
+.news-card[data-source="wsj"]       { background: linear-gradient(160deg, rgba(71, 85, 105, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
+.news-card[data-source="nikkei"]    { background: linear-gradient(160deg, rgba(8, 145, 178, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
+.news-card[data-source="zaobao"]    { background: linear-gradient(160deg, rgba(185, 28, 28, 0.10) 0%, rgba(45, 40, 40, 0.4) 100%); }
 
-/* Card Header */
+
+/* Card Header - Seamless integration */
 .card-header {
-    padding: 16px 20px;
+    padding: 16px 18px 12px; /* Adjusted padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    /* Gradient overlay for brand color */
+    /* The gradient is removed/merged into body, or kept subtle */
+    background: transparent; 
 }
 
-/* Brand backgrounds applied to header */
-.card-header.bloomberg { background: var(--bloomberg-gradient); }
-.card-header.reuters { background: var(--reuters-gradient); }
-.card-header.ap { background: var(--ap-gradient); }
-.card-header.rfi { background: var(--rfi-gradient); }
-.card-header.ft { background: var(--ft-gradient); }
-.card-header.wsj { background: var(--wsj-gradient); }
-.card-header.nikkei { background: var(--nikkei-gradient); }
-.card-header.zaobao { background: var(--zaobao-gradient); }
-
-/* Special text color for FT (yellow background) */
-.card-header.ft .source-name, 
-.card-header.ft .source-tag,
-.card-header.ft .update-time { color: #3E2723; }
-.card-header.ft .source-tag { background: rgba(0,0,0,0.1); color: #3E2723; }
-
+/* Small colored pill for source name */
 .source-info {
     display: flex;
     align-items: center;
-    gap: 10px;
-    z-index: 2;
+    gap: 8px;
 }
 
-.source-name {
+.source-icon { display: none; /* Reference minimal style usually hides generic icons or keeps them small */ }
+/* Or keep icon but make it integrated */
+
+.source-name-badge {
+    /* Create a badge look for the Source Name like the reference's 'Snowball', 'V2EX' etc */
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     color: #fff;
-    text-decoration: none;
+}
+.source-icon-small {
+    font-size: 16px;
 }
 
 .source-tag {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 12px; /* Pill shape */
-    background: rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.95);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+    display: inline-block;
 }
 
 .update-time {
-    font-size: 11px;
-    opacity: 0.8;
-    color: #fff;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
 }
 
+
 /* ====================================
-   News List Styling
+   News List - Scrollable
    ==================================== */
 .news-list {
     list-style: none;
-    padding: 12px 0;
-    flex: 1;
-    overflow-y: auto; /* Allow internal scrolling if strictly needed, otherwise fit-content */
+    padding: 0;
+    margin: 0;
+    /* RESTORED SCROLLING BEHAVIOR */
+    max-height: 400px; /* Approximately 10 items */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.1) transparent;
 }
 
 .news-item {
     display: flex;
     align-items: flex-start;
-    padding: 12px 20px;
-    gap: 14px;
+    padding: 10px 18px; /* Tighter vertical padding */
+    gap: 12px;
     cursor: pointer;
-    transition: background 0.15s ease;
-    border-bottom: none; /* Removed heavy divider */
+    transition: background 0.1s ease;
+    border-bottom: none;
+    position: relative;
 }
 
+/* Hover effect: Subtle highlighting */
 .news-item:hover {
-    background: rgba(255,255,255,0.03);
+    background: rgba(255, 255, 255, 0.05);
 }
 
-/* Ranking Badge */
+/* Rank Number styling matching reference (Dark square with number) */
 .item-rank {
     flex-shrink: 0;
     width: 20px;
@@ -234,56 +242,59 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 11px;
-    font-weight: 700;
-    border-radius: 4px; /* Soft square styling */
-    background: rgba(255,255,255,0.08); /* Subtle grey background */
-    color: var(--text-secondary);
+    font-weight: 500;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2); /* Darker rank box */
+    color: rgba(255, 255, 255, 0.5); /* Dimmed number */
 }
 
-/* Top 3 Ranks get subtle colors */
-.news-item:nth-child(1) .item-rank { background: rgba(255, 87, 34, 0.15); color: #FF5722; }
-.news-item:nth-child(2) .item-rank { background: rgba(255, 179, 0, 0.15); color: #FFB300; }
-.news-item:nth-child(3) .item-rank { background: rgba(255, 255, 255, 0.15); color: #E0E0E0; }
+/* Top 3 Highlighting - Keep subtle */
+.news-item:nth-child(1) .item-rank { color: #fff; background: rgba(255,255,255,0.15); font-weight: 700; }
+.news-item:nth-child(2) .item-rank { color: #eee; }
+.news-item:nth-child(3) .item-rank { color: #ddd; }
 
 .item-title {
-    font-size: 14px;
-    color: var(--text-primary);
-    line-height: 1.5;
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.9); /* High contrast text */
+    line-height: 1.45;
     margin: 0;
-    display: block; /* For translation plugin */
+    display: block; 
     flex: 1;
 }
 
-/* Heat Indicator - Simplified */
+/* Heat - Minimalist */
 .item-heat {
-    font-size: 10px;
-    color: var(--text-muted);
-    font-weight: 500;
-    align-self: flex-start;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.3);
     margin-top: 3px;
-    opacity: 0.6;
+    font-family: monospace;
 }
 
-/* Immersive Translate Compatibility */
+/* Immersive Translate */
 .item-title font[class*="immersive-translate"],
 .item-title span[class*="immersive-translate"],
 .item-title .notranslate + * {
     display: block;
-    margin-top: 6px;
-    color: var(--text-secondary);
-    font-size: 13px;
-    line-height: 1.4;
-    padding-left: 0;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
 }
 
-/* Footer & Other */
+/* Custom Scrollbar for list */
+.news-list::-webkit-scrollbar { width: 4px; }
+.news-list::-webkit-scrollbar-track { background: transparent; }
+.news-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+.news-list::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* Footer */
 .footer {
+    padding: 30px;
     text-align: center;
-    padding: 40px;
-    font-size: 12px;
-    color: var(--text-muted);
-    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    border-top: none;
 }
+
 
 .error-message {
     padding: 30px;
