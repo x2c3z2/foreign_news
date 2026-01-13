@@ -1,239 +1,200 @@
 /* ====================================
-   Global News Hub - Premium Glass Design
+   Global News Hub - NewsNow Style
    ==================================== */
 
 :root {
-    /* Color Palette - Premium Warm Dark (NewsNow Reference) */
-    --bg-primary: #1a1616;   /* Deep warm black */
-    --bg-gradient: linear-gradient(135deg, #2c2020 0%, #1a1616 100%);
+    /* Background - Deep blue-purple gradient like reference */
+    --bg-primary: #1a1d2e;
+    --bg-secondary: #252a3d;
     
-    /* Card Backgrounds - Tinted Glass */
-    /* Instead of flat dark, we use a very subtle gradient based on brand later, 
-       but default is lighter/softer than before */
-    --card-bg: rgba(45, 40, 40, 0.45); 
+    /* Card */
+    --card-bg: rgba(30, 35, 50, 0.7);
     --card-border: rgba(255, 255, 255, 0.06);
-    --card-hover-border: rgba(255, 255, 255, 0.12);
+    --card-radius: 16px;
     
-    /* Text Colors */
-    --text-primary: #F0F0F0;
-    --text-secondary: #B0B0B0;
-    --text-muted: #706060;
+    /* Text */
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --text-muted: #606070;
     
-    /* Brand Gradients for Headers - More Vibrant & Vertical */
-    --bloomberg-gradient: linear-gradient(180deg, rgba(30, 58, 138, 0.8) 0%, rgba(30, 58, 138, 0.2) 100%); /* Blue */
-    --reuters-gradient: linear-gradient(180deg, rgba(234, 88, 12, 0.8) 0%, rgba(234, 88, 12, 0.2) 100%);   /* Orange */
-    --ap-gradient: linear-gradient(180deg, rgba(220, 38, 38, 0.8) 0%, rgba(220, 38, 38, 0.2) 100%);       /* Red */
-    --rfi-gradient: linear-gradient(180deg, rgba(2, 132, 199, 0.8) 0%, rgba(2, 132, 199, 0.2) 100%);      /* Light Blue */
-    --ft-gradient: linear-gradient(180deg, rgba(202, 138, 4, 0.8) 0%, rgba(202, 138, 4, 0.2) 100%);       /* Yellow/Gold */
-    --wsj-gradient: linear-gradient(180deg, rgba(71, 85, 105, 0.8) 0%, rgba(71, 85, 105, 0.2) 100%);      /* Grey */
-    --nikkei-gradient: linear-gradient(180deg, rgba(8, 145, 178, 0.8) 0%, rgba(8, 145, 178, 0.2) 100%);   /* Cyan */
-    --zaobao-gradient: linear-gradient(180deg, rgba(185, 28, 28, 0.8) 0%, rgba(185, 28, 28, 0.2) 100%);   /* Dark Red */
-    
-    /* Spacing & Layout */
-    --radius-card: 12px; /* Slightly tighter than 16px to match reference */
-    --radius-sm: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 20px;
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
-    --backdrop-blur: 12px;
+    /* Brand header colors */
+    --bloomberg-bg: linear-gradient(135deg, #1e3a5f 0%, #0f2540 100%);
+    --reuters-bg: linear-gradient(135deg, #ff5722 0%, #d84315 100%);
+    --ap-bg: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+    --rfi-bg: linear-gradient(135deg, #0277bd 0%, #01579b 100%);
+    --ft-bg: linear-gradient(135deg, #fdd835 0%, #f9a825 100%);
+    --wsj-bg: linear-gradient(135deg, #37474f 0%, #263238 100%);
+    --nikkei-bg: linear-gradient(135deg, #0097a7 0%, #006064 100%);
+    --zaobao-bg: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
 }
 
-/* ====================================
-   Reset & Base Styles
-   ==================================== */
+/* Reset */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body - Gradient background */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg-primary);
-    background-image: var(--bg-gradient);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #1a1d2e 0%, #2d3148 50%, #1a1d2e 100%);
     background-attachment: fixed;
     color: var(--text-primary);
     min-height: 100vh;
     line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
 }
 
-/* ====================================
-   Header Styles
-   ==================================== */
+/* Header */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px;
+    padding: 20px 32px;
     max-width: 1800px;
     margin: 0 auto;
 }
 
+.header-left { display: flex; align-items: center; }
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
-.logo-icon { 
-    font-size: 28px; 
-    filter: drop-shadow(0 0 8px rgba(255, 87, 34, 0.4));
-}
+.logo-icon { font-size: 24px; }
 .logo-text { 
-    font-size: 22px; 
-    font-weight: 800; 
-    letter-spacing: -0.5px;
-    font-family: 'Inter', sans-serif;
+    font-size: 20px; 
+    font-weight: 700;
     color: #fff;
 }
 .logo-version {
     font-size: 10px;
-    background: rgba(255,255,255,0.15);
-    padding: 2px 6px;
+    background: rgba(255,255,255,0.1);
+    padding: 2px 8px;
     border-radius: 4px;
-    color: var(--text-secondary);
-    font-weight: 500;
+    color: #888;
 }
 
+.header-nav { display: flex; gap: 12px; }
 .nav-link {
-    color: var(--text-secondary);
+    color: #888;
     text-decoration: none;
     font-size: 13px;
-    font-weight: 500;
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: 6px;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
 }
-.nav-link:hover {
-    color: #fff;
-}
+.nav-link:hover { color: #fff; }
 
-/* ====================================
-   Main Content Grid
-   ==================================== */
+/* Main grid */
 .main-content {
-    padding: 0 30px 40px;
+    padding: 0 32px 40px;
     max-width: 1800px;
     margin: 0 auto;
 }
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* ====================================
-   News Card Design
-   ==================================== */
+@media (max-width: 1400px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 1000px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } }
+
+/* News Card */
 .news-card {
-    background: var(--card-bg); /* Base glass */
-    border: none; /* Reference has very subtle or no border */
-    border-radius: var(--radius-card);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-soft);
-    position: relative;
-    /* Create a pseudo-element for the colored tint background */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-/* Use tint based on source color */
-.news-card[data-source="bloomberg"] { background: linear-gradient(160deg, rgba(30, 58, 138, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
-.news-card[data-source="reuters"]   { background: linear-gradient(160deg, rgba(234, 88, 12, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
-.news-card[data-source="ap"]        { background: linear-gradient(160deg, rgba(220, 38, 38, 0.10) 0%, rgba(45, 40, 40, 0.4) 100%); }
-.news-card[data-source="rfi"]       { background: linear-gradient(160deg, rgba(2, 132, 199, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
-.news-card[data-source="ft"]        { background: linear-gradient(160deg, rgba(202, 138, 4, 0.10) 0%, rgba(45, 40, 40, 0.4) 100%); }
-.news-card[data-source="wsj"]       { background: linear-gradient(160deg, rgba(71, 85, 105, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
-.news-card[data-source="nikkei"]    { background: linear-gradient(160deg, rgba(8, 145, 178, 0.15) 0%, rgba(45, 40, 40, 0.4) 100%); }
-.news-card[data-source="zaobao"]    { background: linear-gradient(160deg, rgba(185, 28, 28, 0.10) 0%, rgba(45, 40, 40, 0.4) 100%); }
-
-
-/* Card Header - Seamless integration */
+/* Card Header - Brand colored bar */
 .card-header {
-    padding: 16px 18px 12px; /* Adjusted padding */
+    padding: 14px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    /* The gradient is removed/merged into body, or kept subtle */
-    background: transparent; 
 }
 
-/* Small colored pill for source name */
+.card-header.bloomberg { background: var(--bloomberg-bg); }
+.card-header.reuters { background: var(--reuters-bg); }
+.card-header.ap { background: var(--ap-bg); }
+.card-header.rfi { background: var(--rfi-bg); }
+.card-header.ft { background: var(--ft-bg); }
+.card-header.wsj { background: var(--wsj-bg); }
+.card-header.nikkei { background: var(--nikkei-bg); }
+.card-header.zaobao { background: var(--zaobao-bg); }
+
+/* FT special - dark text on yellow */
+.card-header.ft .source-name,
+.card-header.ft .source-tag,
+.card-header.ft .update-time { color: #3e2723; }
+.card-header.ft .source-tag { background: rgba(0,0,0,0.15); }
+
 .source-info {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.source-icon { display: none; /* Reference minimal style usually hides generic icons or keeps them small */ }
-/* Or keep icon but make it integrated */
-
-.source-name-badge {
-    /* Create a badge look for the Source Name like the reference's 'Snowball', 'V2EX' etc */
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 700;
+.source-icon { font-size: 18px; }
+.source-name {
+    font-weight: 600;
     font-size: 15px;
     color: #fff;
+    text-decoration: none;
 }
-.source-icon-small {
-    font-size: 16px;
-}
+.source-name:hover { opacity: 0.9; }
 
 .source-tag {
-    font-size: 9px;
-    font-weight: 600;
-    padding: 2px 6px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.8);
-    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
 }
 
 .update-time {
-    font-size: 10px;
-    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
 }
 
-
-/* ====================================
-   News List - Scrollable
-   ==================================== */
+/* News List - Scrollable */
 .news-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
-    /* RESTORED SCROLLING BEHAVIOR */
-    max-height: 400px; /* Approximately 10 items */
+    padding: 8px 0;
+    max-height: 420px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(255,255,255,0.1) transparent;
 }
 
+.news-list::-webkit-scrollbar { width: 4px; }
+.news-list::-webkit-scrollbar-track { background: transparent; }
+.news-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
 .news-item {
     display: flex;
     align-items: flex-start;
-    padding: 10px 18px; /* Tighter vertical padding */
+    padding: 10px 16px;
     gap: 12px;
     cursor: pointer;
-    transition: background 0.1s ease;
-    border-bottom: none;
-    position: relative;
+    transition: background 0.15s;
 }
 
-/* Hover effect: Subtle highlighting */
 .news-item:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,0.04);
 }
 
-/* Rank Number styling matching reference (Dark square with number) */
+/* Rank number */
 .item-rank {
     flex-shrink: 0;
     width: 20px;
@@ -241,79 +202,56 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.2); /* Darker rank box */
-    color: rgba(255, 255, 255, 0.5); /* Dimmed number */
+    background: rgba(255,255,255,0.08);
+    color: #888;
 }
 
-/* Top 3 Highlighting - Keep subtle */
-.news-item:nth-child(1) .item-rank { color: #fff; background: rgba(255,255,255,0.15); font-weight: 700; }
-.news-item:nth-child(2) .item-rank { color: #eee; }
-.news-item:nth-child(3) .item-rank { color: #ddd; }
+/* Top 3 colored ranks */
+.news-item:nth-child(1) .item-rank { background: #e53935; color: #fff; }
+.news-item:nth-child(2) .item-rank { background: #ff9800; color: #fff; }
+.news-item:nth-child(3) .item-rank { background: #ffc107; color: #333; }
 
 .item-title {
+    flex: 1;
     font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.9); /* High contrast text */
+    color: var(--text-primary);
     line-height: 1.45;
     margin: 0;
-    display: block; 
-    flex: 1;
+    display: block;
 }
 
-/* Heat - Minimalist */
+/* Heat value */
 .item-heat {
-    font-size: 9px;
-    color: rgba(255, 255, 255, 0.3);
-    margin-top: 3px;
-    font-family: monospace;
+    font-size: 10px;
+    color: #666;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
 /* Immersive Translate */
-.item-title font[class*="immersive-translate"],
-.item-title span[class*="immersive-translate"],
-.item-title .notranslate + * {
+.item-title font, .item-title > span:last-child {
     display: block;
     margin-top: 4px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-secondary);
     font-size: 12px;
 }
 
-/* Custom Scrollbar for list */
-.news-list::-webkit-scrollbar { width: 4px; }
-.news-list::-webkit-scrollbar-track { background: transparent; }
-.news-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
-.news-list::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
-
 /* Footer */
 .footer {
-    padding: 30px;
     text-align: center;
+    padding: 30px;
     font-size: 11px;
-    color: rgba(255,255,255,0.2);
-    border-top: none;
+    color: #555;
 }
 
-
+/* Error state */
 .error-message {
-    padding: 30px;
+    padding: 40px;
     text-align: center;
-    color: var(--text-muted);
+    color: #666;
 }
-
-/* Responsive */
-@media (max-width: 1200px) {
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 768px) {
-    .cards-grid { grid-template-columns: 1fr; }
-    .header { padding: 20px; }
-    .main-content { padding: 0 20px 40px; }
-}
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { bg: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+.error-message p { margin: 8px 0; }
+.error-detail { font-size: 12px; color: #555; }
