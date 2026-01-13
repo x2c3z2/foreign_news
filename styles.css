@@ -429,11 +429,18 @@ body::before {
     font-size: 0.85rem;
     color: var(--text-primary);
     line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    margin: 0;
+    display: block;
     transition: color var(--transition-fast);
+}
+
+/* Immersive Translate: translation text styling */
+.item-title br + font,
+.item-title > font:last-child {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
 }
 
 .item-heat {
