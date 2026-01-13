@@ -35,7 +35,7 @@
     box-sizing: border-box;
 }
 
-/* Body */
+/* Body with decorative background */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg-base);
@@ -44,6 +44,32 @@ body {
     color: var(--text-primary);
     min-height: 100vh;
     line-height: 1.5;
+    position: relative;
+}
+
+/* Decorative background orbs for glassmorphism effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Header */
@@ -106,15 +132,17 @@ body {
 @media (max-width: 1000px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } }
 
-/* News Card */
+/* News Card - Glassmorphism */
 .news-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
+    background: rgba(35, 40, 60, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--card-radius);
     overflow: hidden;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 1;
 }
 
 .news-card:hover {
